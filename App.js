@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Text } from 'react-native'
 import { observer } from 'mobx-react';
 
-import Accordion from './src/CollapsibleAccordion/Accordion';
-import { getTournamentsByCountryId } from './src/CollapsibleAccordion/tournaments';
-import allCountries from './src/CollapsibleAccordion/countries';
+import Accordion from './src/collapsible-accordion/Accordion';
+import { getTournamentsByCountryId } from './src/collapsible-accordion/tournaments';
+import allCountries from './src/collapsible-accordion/countries';
 import { observable, action } from 'mobx';
+import Form from './src/formik-form/Form';
 
 @observer
 class App extends Component {
@@ -35,7 +36,8 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {this.loading ? <Text>Loading...</Text> : <Accordion data={this.countries} onDataChange={this.getTournaments} />}
+        <Form />
+        {/* {this.loading ? <Text>Loading...</Text> : <Accordion data={this.countries} onDataChange={this.getTournaments} />} */}
       </View>
     );
   }
